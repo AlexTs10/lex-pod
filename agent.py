@@ -8,16 +8,17 @@ from langchain.chains.conversation.memory import ConversationBufferWindowMemory
 from langchain.agents import initialize_agent
 import pinecone 
 import os 
+from dotenv import load_dotenv
 
-os.environ['OPENAI_API_KEY'] = "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"
+load_dotenv()
 
 pinecone.init(
-    api_key="66900923-65d0-4456-8864-8ff7cf5abc81",  # find at app.pinecone.io
-    environment="us-west1-gcp"  # next to api key in console
+    api_key=os.environ.get('PINECONE_API_KEY'),  # find at app.pinecone.io
+    environment=os.environ.get('PINECONE_LOCATION')  # next to api key in console
 )
 index_name = "lex-pod"
 
-embeddings = OpenAIEmbeddings()
+embeddings = OpenAIEmbeddings(openai_api_key=os.environ['OPENAI_API_KEY'])
 docsearch = Pinecone.from_existing_index("lex-pod", embeddings)
 llm = ChatOpenAI(
     #temperature=1.0,
