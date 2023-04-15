@@ -1,8 +1,0 @@
-[build]
-  command = "npm run build"
-  publish = "lex-react-gpt/build"
-
-[[redirects]]
-  from = "/api/*"
-  to = "http://localhost:5000/"
-  status = 200
