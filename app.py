@@ -7,7 +7,7 @@ app = Flask(__name__, static_folder='./lex-react-gpt/build')
 CORS(app)
 
 
-@app.route('/', defaults={'path': ''} , methods=['POST'])
+@app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve(path):
     if path != "" and os.path.exists(app.static_folder + '/' + path):
@@ -16,7 +16,7 @@ def serve(path):
         return send_from_directory(app.static_folder, 'index.html')
 
 
-@app.route('/', methods=['POST'])
+@app.route('/handle_message', methods=['POST'])
 def handle_message():
     
 
