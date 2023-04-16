@@ -3,7 +3,7 @@ from flask_cors import CORS
 import os
 from agent import conversational_agent
 
-app = Flask(__name__, static_folder='./lex-react-gpt/build')
+app = Flask(__name__, static_folder='./build')
 CORS(app)
 
 
