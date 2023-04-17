@@ -16,7 +16,6 @@ dataclasses-json==0.5.7
 dbus-python==1.2.18
 distlib==0.3.4
 distro==1.7.0
-distro-info===1.1build1
 dnspython==2.3.0
 filelock==3.6.0
 Flask==2.2.3
